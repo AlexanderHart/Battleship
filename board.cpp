@@ -12,7 +12,7 @@ board::board() {
 
 void board::display() {
 	for (int i = 0; i < 50; i++) {
-		std::cout << (i + 1) << " ";
+		std::cout << i << " ";
 	}
 	
 	std::cout << std::endl;
