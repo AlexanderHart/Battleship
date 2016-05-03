@@ -15,6 +15,9 @@ main() {
 	
 	// Future Implementation: have user choose values
 	
+	// Setting up the game, but can't this be done in some
+	// kind of instructor?
+	
 	playerOneTarget[0].setSize(6);
 	playerOneTarget[0].setLocation(0);
 	playerOneTarget[1].setSize(5);
@@ -54,4 +57,17 @@ main() {
 		
 	cout << "\n\nPlayer two board\n";
 	playerTwo.display();
+	
+	// Begin gameplay
+	while (!playerOne.sunk() || !playerTwo.sunk()) { // While either boards are active.
+		int currentPlayer = 0; // 0 = Player one, 1 = Player two
+		
+		if (currentPlayer == 0) {
+			playerOne.getMove();
+		} else {
+			playerTwo.getMove();
+		}
+		
+		switchPlayer(currentPlayer);
+	}
 }
