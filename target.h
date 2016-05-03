@@ -1,3 +1,5 @@
+#ifndef TARGET_H
+#define TARGET_H
 class target {
 	private:
 		int	size;
@@ -6,6 +8,7 @@ class target {
 	public:
 		void	setSize(int);
 		int		getSize();
-		void	setLocation();
-		void	getLocation();
+		void	setLocation(int);
+		int		getLocation();
 };
+#endif

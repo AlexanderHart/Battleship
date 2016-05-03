@@ -29,6 +29,10 @@ void board::display() {
 	std::cout << std::endl;
 }
 
-void board::addShip() {
-	
+
+
+void board::addShip(int location, int size) {
+	for(int index = location; index < (location + size); index++) {
+		field[index] = 'X';
+	}
 }

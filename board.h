@@ -7,5 +7,6 @@ class board {
 	public:
 				board(); // Initialize with empty cells
 		void	display();
+		void	addShip(int, int);
 };
 #endif
