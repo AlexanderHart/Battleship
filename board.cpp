@@ -12,8 +12,23 @@ board::board() {
 
 void board::display() {
 	for (int i = 0; i < 50; i++) {
-		std::cout << field[i];
+		std::cout << (i + 1) << " ";
 	}
 	
 	std::cout << std::endl;
+	
+	for (int i = 0; i < 50; i++) {
+		std::cout << field[i];
+		
+		if (i < 9)
+			std::cout << " ";
+		else
+			std::cout << "  ";
+	}
+	
+	std::cout << std::endl;
+}
+
+void board::addShip() {
+	
 }
