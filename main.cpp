@@ -59,7 +59,7 @@ main() {
 	playerTwo.display();
 	
 	// Begin gameplay
-	while (!playerOne.sunk() || !playerTwo.sunk()) { // While either boards are active.
+	while (!playerOne.isSunk() || !playerTwo.isSunk()) { // While either boards are active.
 		int currentPlayer = 0; // 0 = Player one, 1 = Player two
 		
 		if (currentPlayer == 0) {

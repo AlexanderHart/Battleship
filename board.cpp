@@ -33,6 +33,6 @@ void board::display() {
 
 void board::addShip(int location, int size) {
 	for(int index = location; index < (location + size); index++) {
-		field[index] = 'X';
+		field[index] = 'O';
 	}
 }
