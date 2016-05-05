@@ -14,16 +14,10 @@ int target::getSize() {
 
 void target::setLocation(int input) {
 	location = input;
-
+}
 
 
 
 int target::getLocation() {
 	return location;
-}
-
-
-
-bool target::isSunk() {
-	return sunk;
 }

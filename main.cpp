@@ -16,7 +16,7 @@ main() {
 	// Future Implementation: have user choose values
 	
 	// Setting up the game, but can't this be done in some
-	// kind of instructor?
+	// kind of constructor?
 	
 	playerOneTarget[0].setSize(6);
 	playerOneTarget[0].setLocation(0);
@@ -59,7 +59,7 @@ main() {
 	playerTwo.display();
 	
 	// Begin gameplay
-	while (!playerOne.isSunk() || !playerTwo.isSunk()) { // While either boards are active.
+	while (!playerOne.getWon() && !playerTwo.getWon()) { // While neither board has won.
 		int currentPlayer = 0; // 0 = Player one, 1 = Player two
 		
 		if (currentPlayer == 0) {
@@ -68,6 +68,11 @@ main() {
 			playerTwo.getMove();
 		}
 		
-		switchPlayer(currentPlayer);
+		// Switch players
+		if (currentPlayer == 0)
+			currentPlayer = 1;
+		else
+			currentPlayer = 2;
 	}
+
 }

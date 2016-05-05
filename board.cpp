@@ -36,3 +36,19 @@ void board::addShip(int location, int size) {
 		field[index] = 'O';
 	}
 }
+
+
+
+void board::getMove(int player) {
+
+	// Prompt for guess input
+	std::cout << "Enter your shot (ex. 23): ";
+	std::cin >> guess;
+	 
+	if (field[guess] == 'O') { // Hit
+		field[guess] = '@';
+	}
+	else if (field[guess] == '_') { // Miss
+		field[guess] = 'X';
+	}
+}
