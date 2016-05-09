@@ -39,16 +39,45 @@ void board::addShip(int location, int size) {
 
 
 
-void board::getMove(int player) {
+bool board::getStatus() {
+	int count = 0;
+
+	for (int index = 0; index < 50; index++) {
+		if (field[index] == '@')
+			count++;
+	}
+	
+	if (count == 20) // Magic number
+		return true;
+	else
+		return false;
+}
+
+
+
+char board::getField(int input) {
+	return field[input];
+}
+
+
+
+void board::changeField(int position, char marker) {
+	field[position] = marker;
+}
+
+
+
+void board::getMove(board &oponent) {
+	int guess;
 
 	// Prompt for guess input
-	std::cout << "Enter your shot (ex. 23): ";
+	std::cout << "enter your shot (ex. 23): ";
 	std::cin >> guess;
 	 
-	if (field[guess] == 'O') { // Hit
-		field[guess] = '@';
+	if (oponent.getField(guess) == 'O') { // Hit
+		oponent.changeField(guess, '@'); // Update the field position
 	}
 	else if (field[guess] == '_') { // Miss
-		field[guess] = 'X';
+		oponent.changeField(guess, 'X'); // Update the field position
 	}
 }

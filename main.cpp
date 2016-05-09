@@ -13,6 +13,8 @@ main() {
 	board	playerTwo;
 	target	playerTwoTarget[5];
 	
+	int currentPlayer = 0; // 0 = Player one, 1 = Player two
+	
 	// Future Implementation: have user choose values
 	
 	// Setting up the game, but can't this be done in some
@@ -52,27 +54,37 @@ main() {
 	playerTwo.addShip(playerTwoTarget[3].getLocation(), playerTwoTarget[3].getSize());
 	playerTwo.addShip(playerTwoTarget[4].getLocation(), playerTwoTarget[4].getSize());
 	
+	// Text-based interface
+	
 	cout << "Player one board\n";
 	playerOne.display();
 		
-	cout << "\n\nPlayer two board\n";
+	cout << "\nPlayer two board\n";
 	playerTwo.display();
 	
-	// Begin gameplay
-	while (!playerOne.getWon() && !playerTwo.getWon()) { // While neither board has won.
-		int currentPlayer = 0; // 0 = Player one, 1 = Player two
+	
+	// Gameplay action
+	while (!playerOne.getStatus() && !playerTwo.getStatus()) {
 		
 		if (currentPlayer == 0) {
-			playerOne.getMove();
+			cout << "\nPlayer one, ";
+			playerOne.getMove(playerTwo);
 		} else {
-			playerTwo.getMove();
+			cout << "\nPlayer two, ";
+			playerTwo.getMove(playerOne);
 		}
-		
+			
 		// Switch players
 		if (currentPlayer == 0)
 			currentPlayer = 1;
 		else
-			currentPlayer = 2;
-	}
+			currentPlayer = 0;
+			
+		cout << "\nPlayer one board\n";
+		playerOne.display();
+		
+		cout << "\nPlayer two board\n";
+		playerTwo.display();
+ 	}
 
 }

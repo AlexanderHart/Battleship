@@ -9,7 +9,9 @@ class board {
 				board(); // Initialize with empty cells
 		void	display();
 		void	addShip(int, int);
-		bool	checkForWin();
-		void	getMove(int);
+		bool	getStatus();
+		void	getMove(board&);
+		void	changeField(int, char);
+		char	getField(int);
 };
 #endif
