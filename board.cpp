@@ -6,6 +6,8 @@ board::board() {
 	for (int index = 0; index < 50; index++) {
 		field[index] = '_';
 	}
+	
+	guessAmount = 0;
 }
 
 
@@ -67,17 +69,36 @@ void board::changeField(int position, char marker) {
 
 
 
+bool board::validate(int input) {
+	for (int index = 0; index < guessAmount; index++) {
+		if (input == guesses[index]) {
+			return false;
+			break;
+		} 
+	}
+	
+	return true;
+	
+	//if ((input < 0 || input > 49))
+	//	return false;
+}
+
+
+
 void board::getMove(board &oponent) {
 	int guess;
 
-	// Prompt for guess input
-	std::cout << "enter your shot (ex. 23): ";
-	std::cin >> guess;
-	 
-	if (oponent.getField(guess) == 'O') { // Hit
-		oponent.changeField(guess, '@'); // Update the field position
+	do {
+		// Prompt for guess input
+		std::cout << "enter your shot (ex. 23): ";
+		std::cin >> guess;
+		guessAmount++;
+	} while (guess > 49 || guess < 0);
+ 
+	if (oponent.getField(guess) == 'O') { 	// Hit
+		oponent.changeField(guess, '@'); 	// Update the field position
 	}
-	else if (field[guess] == '_') { // Miss
-		oponent.changeField(guess, 'X'); // Update the field position
+	else if (field[guess] == '_') { 		// Miss
+		oponent.changeField(guess, 'X'); 	// Update the field position
 	}
 }

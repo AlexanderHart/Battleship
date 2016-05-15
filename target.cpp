@@ -1,5 +1,12 @@
 #include "target.h"
 
+target::target() {
+	size 		= 0;
+	location 	= 0;
+}
+
+
+
 void target::setSize(int input) {
 	size = input;
 }

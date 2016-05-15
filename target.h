@@ -6,6 +6,7 @@ class target {
 		int		location;
 		
 	public:
+				target();
 		void	setSize(int);
 		int		getSize();
 		void	setLocation(int);
